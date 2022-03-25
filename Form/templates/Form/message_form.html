@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="{% static 'Form/css/index.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'Form/css/uikit.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div id="mp" class="uk-flex uk-position-center uk-flex-column uk-child-width-1-1 uk-margin-top">
+    <div class="uk-card uk-card-default uk-padding">
+        <div>
+            <h1>Message</h1>
+        </div>
+        <form action="{% url 'result' %}">
+            {% for field in form %}
+            {{ field.errors }}
+            <div class="uk-margin uk-child-width-1-1">
+                <div class="uk-inline uk-flex uk-flex-center">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <div>
+                <button type="submit" value="Submit"
+                        class="uk-width-expand uk-align-center uk-margin-remove-bottom submit_button">
+                    Submit
+                </button>
+            </div>
+        </form>
+        <div>
+            <a href="{% url 'standard' %}{{attrs}}">
+                <button class="uk-width-expand uk-align-center uk-margin-remove-bottom submit_button">
+                    Go to standard page
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{% static 'Form/js/uikit.js' %}"></script>

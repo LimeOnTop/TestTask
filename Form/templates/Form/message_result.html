@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="{% static 'Form/css/index.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'Form/css/uikit.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div id="mp" class="uk-flex uk-position-center uk-flex-column uk-child-width-1-1 uk-margin-top">
+    <div class="uk-card uk-card-default uk-padding">
+        <div>
+            <h1>Hello, {{ name }}!</h1>
+        </div>
+        <div>
+            <p>{{text}}</p>
+        </div>
+        <div>
+            <a href="{% url 'message' %}">
+                <button class="uk-align-center uk-margin-remove-bottom submit_button">
+                    Return
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{% static 'Form/js/uikit.js' %}"></script>
